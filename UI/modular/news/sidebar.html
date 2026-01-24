@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Sidebar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#09090b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- COMPONENT START: Sidebar -->
+    <aside class="space-y-8">
+        
+        <!-- Widget: Search -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i class="fas fa-search text-primary"></i> Pencarian
+            </h3>
+            <div class="relative">
+                <input type="text" placeholder="Cari berita..." class="w-full bg-gray-50 border border-gray-200 text-gray-700 px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                <button class="absolute right-3 top-3 text-gray-400 hover:text-primary"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Widget: Popular News (Sedang Hangat) -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-bold text-gray-900 text-lg">Sedang Hangat</h3>
+                <span class="text-xs font-semibold text-primary bg-rose-50 px-2 py-1 rounded">24 Jam</span>
+            </div>
+            
+            <div class="space-y-5">
+                <!-- Item 1 -->
+                <a href="#" class="flex gap-4 group">
+                    <span class="text-4xl font-black text-gray-100 group-hover:text-primary transition leading-none -mt-1">1</span>
+                    <div>
+                        <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider mb-1 block">Teknologi</span>
+                        <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                            AI Generatif Mengubah Cara Kerja Desainer Grafis
+                        </h4>
+                    </div>
+                </a>
+                
+                <!-- Item 2 -->
+                <a href="#" class="flex gap-4 group">
+                    <span class="text-4xl font-black text-gray-100 group-hover:text-primary transition leading-none -mt-1">2</span>
+                    <div>
+                        <span class="text-[10px] font-bold text-green-500 uppercase tracking-wider mb-1 block">Olahraga</span>
+                        <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                            Persiapan Timnas Menjelang Piala Asia
+                        </h4>
+                    </div>
+                </a>
+
+                <!-- Item 3 -->
+                <a href="#" class="flex gap-4 group">
+                    <span class="text-4xl font-black text-gray-100 group-hover:text-primary transition leading-none -mt-1">3</span>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider mb-1 block">Ekonomi</span>
+                        <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                            Nilai Tukar Rupiah Menguat di Awal Pekan
+                        </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Widget: Ads Placeholder -->
+        <div class="bg-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-gray-300 via-gray-200 to-gray-300 animate-pulse"></div>
+            <i class="fas fa-ad text-4xl mb-2 relative z-10"></i>
+            <span class="text-sm font-semibold relative z-10">Space Iklan (300x250)</span>
+            <span class="text-xs mt-2 text-gray-500 relative z-10">Hubungi: iklan@newsportal.id</span>
+        </div>
+
+    </aside>
+    <!-- COMPONENT END: Sidebar -->
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsPortal ID - Berita Terkini</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter & Merriweather) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif; 
+        }
+        .article-content {
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            color: #374151;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .hidden-page {
+            display: none;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- Top Bar (Date & Socials) -->
+        <div class="bg-slate-900 text-white text-xs py-2">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <span id="current-date">Senin, 1 Januari 2024</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-blue-400">Tentang Kami</a>
+                    <a href="#" class="hover:text-blue-400">Kontak</a>
+                    <a href="#" class="hover:text-blue-400">Redaksi</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Nav -->
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" onclick="showPage('home')" class="text-2xl font-bold text-blue-700 flex items-center gap-2 cursor-pointer">
+                    <div class="bg-blue-700 text-white p-1 rounded">NP</div>
+                    NewsPortal
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex gap-8 font-semibold text-sm text-gray-600">
+                    <a href="#" onclick="showPage('home')" class="hover:text-blue-700 transition">Utama</a>
+                    <a href="#" onclick="showCategory('Nasional')" class="hover:text-blue-700 transition">Nasional</a>
+                    <a href="#" onclick="showCategory('Teknologi')" class="hover:text-blue-700 transition">Teknologi</a>
+                    <a href="#" onclick="showCategory('Ekonomi')" class="hover:text-blue-700 transition">Ekonomi</a>
+                    <a href="#" onclick="showCategory('Olahraga')" class="hover:text-blue-700 transition">Olahraga</a>
+                    <a href="#" onclick="showCategory('Hiburan')" class="hover:text-blue-700 transition">Hiburan</a>
+                </nav>
+
+                <!-- Search & Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button class="text-gray-500 hover:text-blue-700">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+                    <button class="md:hidden text-gray-800" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="flex flex-col p-4 gap-4 font-semibold text-sm">
+                <a href="#" onclick="showPage('home'); toggleMobileMenu()" class="text-blue-700">Utama</a>
+                <a href="#" onclick="showCategory('Nasional'); toggleMobileMenu()">Nasional</a>
+                <a href="#" onclick="showCategory('Teknologi'); toggleMobileMenu()">Teknologi</a>
+                <a href="#" onclick="showCategory('Ekonomi'); toggleMobileMenu()">Ekonomi</a>
+                <a href="#" onclick="showCategory('Olahraga'); toggleMobileMenu()">Olahraga</a>
+                <a href="#" onclick="showCategory('Hiburan'); toggleMobileMenu()">Hiburan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        
+        <!-- PAGE: HOME -->
+        <div id="page-home" class="page-section">
+            <!-- Hero Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Main Headline -->
+                <div class="lg:col-span-2 group cursor-pointer" onclick="showArticle(1)">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg h-[400px]">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Kantor" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <span class="bg-blue-600 px-2 py-1 text-xs font-bold rounded mb-2 inline-block">Bisnis</span>
+                            <h2 class="text-3xl font-bold mb-2 leading-tight group-hover:underline">Transformasi Digital: Kunci Pertumbuhan Ekonomi Indonesia 2024</h2>
+                            <p class="text-gray-200 text-sm hidden sm:block">Perusahaan teknologi besar mulai merambah ke sektor infrastruktur desa untuk mempercepat konektivitas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending / Side Headlines -->
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-bold text-gray-800 border-l-4 border-red-500 pl-3">Sedang Hangat</h3>
+                    
+                    <!-- Side Item 1 -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer flex gap-4" onclick="showArticle(2)">
+                        <div class="w-1/3 h-20 bg-gray-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3">
+                            <span class="text-xs text-blue-600 font-semibold">Teknologi</span>
+                            <h4 class="font-bold text-sm leading-snug hover:text-blue-700">AI Generatif Mengubah Cara Kerja Desainer Grafis</h4>
+                        </div>
+                    </div>
+
+                    <!-- Side Item 2 -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer flex gap-4" onclick="showArticle(3)">
+                        <div class="w-1/3 h-20 bg-gray-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3">
+                            <span class="text-xs text-green-600 font-semibold">Olahraga</span>
+                            <h4 class="font-bold text-sm leading-snug hover:text-blue-700">Persiapan Timnas Menjelang Piala Asia Makin Matang</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Side Item 3 -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer flex gap-4" onclick="showArticle(4)">
+                        <div class="w-1/3 h-20 bg-gray-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3">
+                            <span class="text-xs text-purple-600 font-semibold">Ekonomi</span>
+                            <h4 class="font-bold text-sm leading-snug hover:text-blue-700">Nilai Tukar Rupiah Menguat di Awal Pekan</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest News Grid -->
+            <div class="mb-8">
+                <div class="flex justify-between items-end mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Berita Terbaru</h3>
+                    <a href="#" onclick="showCategory('Terkini')" class="text-blue-600 text-sm font-semibold hover:underline">Lihat Semua</a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="latest-news-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: ARTICLE DETAIL -->
+        <div id="page-article" class="page-section hidden-page">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+                <!-- Breadcrumb -->
+                <div class="px-6 py-4 border-b border-gray-100 text-sm text-gray-500">
+                    <span class="cursor-pointer hover:text-blue-600" onclick="showPage('home')">Home</span> / 
+                    <span id="detail-category" class="font-semibold text-blue-600">Kategori</span>
+                </div>
+
+                <!-- Article Header -->
+                <div class="p-6 md:p-10">
+                    <h1 id="detail-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">Judul Artikel Disini</h1>
+                    
+                    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold text-gray-600">AD</div>
+                            <span id="detail-author">Admin Redaksi</span>
+                        </div>
+                        <span>•</span>
+                        <span id="detail-date">20 Jan 2024, 14:30 WIB</span>
+                    </div>
+
+                    <img id="detail-image" src="" class="w-full h-[400px] object-cover rounded-lg mb-8" alt="Detail Image">
+
+                    <div class="article-content text-lg">
+                        <p id="detail-content">Isi artikel akan muncul di sini...</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Analisis Mendalam</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <span class="text-sm font-bold text-gray-700 mr-2">Tags:</span>
+                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded hover:bg-gray-200 cursor-pointer">Berita Utama</span>
+                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded hover:bg-gray-200 cursor-pointer">Viral</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: CATEGORY LIST -->
+        <div id="page-category" class="page-section hidden-page">
+            <div class="mb-8 text-center">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Arsip Berita</span>
+                <h1 id="category-title" class="text-3xl font-bold text-gray-900 mt-2">Kategori</h1>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="category-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-12 pb-6 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-blue-600 text-white p-1 rounded font-bold">NP</div>
+                        <span class="text-xl font-bold">NewsPortal</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Menyajikan berita terkini, akurat, dan terpercaya dari seluruh penjuru dunia.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Kategori</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" onclick="showCategory('Nasional')" class="hover:text-white">Nasional</a></li>
+                        <li><a href="#" onclick="showCategory('Teknologi')" class="hover:text-white">Teknologi</a></li>
+                        <li><a href="#" onclick="showCategory('Ekonomi')" class="hover:text-white">Ekonomi</a></li>
+                        <li><a href="#" onclick="showCategory('Olahraga')" class="hover:text-white">Olahraga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Informasi</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-white">Pedoman Media Siber</a></li>
+                        <li><a href="#" class="hover:text-white">Karir</a></li>
+                        <li><a href="#" class="hover:text-white">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Berlangganan</h4>
+                    <p class="text-xs text-slate-400 mb-3">Dapatkan berita pilihan setiap pagi.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email Anda" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-l text-sm focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 text-sm">Daftar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2024 NewsPortal ID. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA DUMMY (DIPERLUAS MENJADI 30+ BERITA) ---
+        const articles = [
+            // HERO & SIDEBAR (ID 1-4)
+            {
+                id: 1,
+                title: "Transformasi Digital: Kunci Pertumbuhan Ekonomi 2024",
+                category: "Bisnis",
+                author: "Budi Santoso",
+                date: "23 Jan 2026",
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+                content: "Pemerintah optimis bahwa transformasi digital akan menjadi tulang punggung pertumbuhan ekonomi nasional tahun ini. Dengan investasi besar-besaran di sektor infrastruktur internet desa, diharapkan UMKM dapat menembus pasar global dengan lebih mudah."
+            },
+            {
+                id: 2,
+                title: "AI Generatif Mengubah Cara Kerja Desainer Grafis",
+                category: "Teknologi",
+                author: "Siti Aminah",
+                date: "22 Jan 2026",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600",
+                content: "Kecerdasan buatan kini mampu menciptakan gambar hanya dari teks. Hal ini memicu perdebatan di kalangan seniman, namun banyak juga yang melihatnya sebagai alat bantu produktivitas yang revolusioner."
+            },
+            {
+                id: 3,
+                title: "Persiapan Timnas Menjelang Piala Asia Makin Matang",
+                category: "Olahraga",
+                author: "Rizky Ramadhan",
+                date: "22 Jan 2026",
+                image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=600",
+                content: "Pelatih Timnas menegaskan bahwa kondisi fisik pemain berada di level puncak. Pemusatan latihan di Eropa memberikan dampak positif signifikan terhadap mental bertanding skuad Garuda."
+            },
+            {
+                id: 4,
+                title: "Nilai Tukar Rupiah Menguat di Awal Pekan",
+                category: "Ekonomi",
+                author: "Dewi Lestari",
+                date: "21 Jan 2026",
+                image: "https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&q=80&w=600",
+                content: "Sentimen positif pasar global mendorong penguatan Rupiah. Investor asing mulai kembali melirik pasar obligasi negara berkembang termasuk Indonesia."
+            },
+            
+            // TAMBAHAN BERITA BARU (ID 5-35)
+            // Kategori: Nasional
+            {
+                id: 5,
+                title: "Pembangunan Tol Trans-Sumatera Segera Rampung",
+                category: "Nasional",
+                author: "Budi Santoso",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1594950005527-775c907604f7?auto=format&fit=crop&q=80&w=600",
+                content: "Proyek strategis nasional jalan tol Trans-Sumatera ditargetkan selesai akhir tahun ini, menghubungkan Lampung hingga Aceh untuk memperlancar logistik."
+            },
+            {
+                id: 6,
+                title: "Cuaca Ekstrem: BMKG Himbau Warga Waspada Banjir",
+                category: "Nasional",
+                author: "Rina Wati",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1547683905-f686c993aee5?auto=format&fit=crop&q=80&w=600",
+                content: "Curah hujan tinggi diperkirakan akan melanda wilayah Jabodetabek dalam sepekan ke depan. Warga di bantaran sungai diminta siaga."
+            },
+            {
+                id: 7,
+                title: "Presiden Resmikan Bendungan Baru di Jawa Tengah",
+                category: "Nasional",
+                author: "Joko Priyono",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1581093583449-ed25213233c0?auto=format&fit=crop&q=80&w=600",
+                content: "Bendungan ini diharapkan dapat mengairi 5000 hektar sawah dan menjadi sumber air baku bagi 3 kabupaten sekitarnya."
+            },
+            {
+                id: 8,
+                title: "Kementrian Pendidikan Luncurkan Kurikulum Digital",
+                category: "Nasional",
+                author: "Siti Aminah",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600",
+                content: "Siswa kini dapat mengakses materi pelajaran melalui aplikasi terintegrasi. Ini adalah langkah maju pemerataan pendidikan di Indonesia."
+            },
+            {
+                id: 9,
+                title: "Angka Pariwisata Bali Kembali Pulih Pasca Pandemi",
+                category: "Nasional",
+                author: "Wayan Surya",
+                date: "17 Jan 2026",
+                image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=600",
+                content: "Kunjungan wisman menembus angka 5 juta di kuartal pertama. Hotel dan restoran mulai penuh sesak kembali."
+            },
+
+            // Kategori: Teknologi
+            {
+                id: 10,
+                title: "Smartphone Layar Gulung Mulai Masuk Pasar Indonesia",
+                category: "Teknologi",
+                author: "Gadget Freak",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600",
+                content: "Inovasi terbaru layar gulung menawarkan pengalaman tablet dalam genggaman ponsel. Harganya masih premium namun peminatnya tinggi."
+            },
+            {
+                id: 11,
+                title: "Startup Fintech Lokal Raih Pendanaan Seri B",
+                category: "Teknologi",
+                author: "Dewi Lestari",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=600",
+                content: "Aplikasi pengelola keuangan ini berhasil menarik investor asing senilai 50 juta dolar AS untuk ekspansi ke Asia Tenggara."
+            },
+            {
+                id: 12,
+                title: "Bahaya Deepfake: Pemerintah Siapkan Regulasi AI",
+                category: "Teknologi",
+                author: "Siti Aminah",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
+                content: "Maraknya penipuan menggunakan wajah tiruan AI membuat pemerintah bergerak cepat menyusun undang-undang etika kecerdasan buatan."
+            },
+            {
+                id: 13,
+                title: "Jaringan 6G Mulai Diuji Coba di Korea Selatan",
+                category: "Teknologi",
+                author: "Tech Insider",
+                date: "17 Jan 2026",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600",
+                content: "Kecepatan transfer data mencapai 1 terabit per detik. Teknologi ini diprediksi akan mengubah dunia telepresence dan operasi jarak jauh."
+            },
+            {
+                id: 14,
+                title: "Laptop Gaming Lokal Saingi Merek Internasional",
+                category: "Teknologi",
+                author: "Game Master",
+                date: "16 Jan 2026",
+                image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600",
+                content: "Spesifikasi tinggi dengan harga miring membuat laptop rakitan anak bangsa ini ludes di pasaran dalam hitungan menit."
+            },
+
+            // Kategori: Olahraga
+            {
+                id: 15,
+                title: "Liga 1 Indonesia Terapkan VAR Mulai Musim Depan",
+                category: "Olahraga",
+                author: "Rizky Ramadhan",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&q=80&w=600",
+                content: "PSSI memastikan teknologi Video Assistant Referee akan digunakan untuk meningkatkan kualitas keputusan wasit di lapangan."
+            },
+            {
+                id: 16,
+                title: "Ganda Putra Indonesia Juara All England 2026",
+                category: "Olahraga",
+                author: "Badminton Lovers",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1626224583764-847890e045b5?auto=format&fit=crop&q=80&w=600",
+                content: "Pasangan muda ini berhasil mengalahkan wakil China di final dengan pertarungan rubber set yang menegangkan."
+            },
+            {
+                id: 17,
+                title: "Maraton Jakarta 2026 Diikuti 10.000 Pelari",
+                category: "Olahraga",
+                author: "Sehat Bugar",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&q=80&w=600",
+                content: "Antusiasme warga Jakarta untuk hidup sehat semakin tinggi. Ajang lari tahunan ini memecahkan rekor peserta terbanyak."
+            },
+            {
+                id: 18,
+                title: "Pembalap Muda Indonesia Tembus Formula 2",
+                category: "Olahraga",
+                author: "Oto Speed",
+                date: "17 Jan 2026",
+                image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600",
+                content: "Satu langkah lagi menuju F1. Dukungan sponsor dan pemerintah mengalir deras untuk talenta muda berbakat ini."
+            },
+
+            // Kategori: Ekonomi
+            {
+                id: 19,
+                title: "Harga Emas Antam Turun Tipis Hari Ini",
+                category: "Ekonomi",
+                author: "Dewi Lestari",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=600",
+                content: "Penurunan harga emas dunia mempengaruhi pasar lokal. Waktu yang tepat bagi investor untuk melakukan buyback?"
+            },
+            {
+                id: 20,
+                title: "Ekspor Kopi Indonesia Meningkat 20% ke Eropa",
+                category: "Ekonomi",
+                author: "Kopi Nusantara",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=600",
+                content: "Cita rasa kopi Gayo dan Toraja semakin diminati kafe-kafe di Paris dan London. Petani kopi menyambut gembira."
+            },
+            {
+                id: 21,
+                title: "IHSG Ditutup Menguat di Zona Hijau",
+                category: "Ekonomi",
+                author: "Saham Mantap",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=600",
+                content: "Sektor perbankan dan pertambangan menjadi pendorong utama kenaikan indeks saham gabungan hari ini."
+            },
+
+            // Kategori: Hiburan
+            {
+                id: 22,
+                title: "Film Horor Lokal Tembus 5 Juta Penonton",
+                category: "Hiburan",
+                author: "Cinephile",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600",
+                content: "Kualitas sinematografi film horor Indonesia semakin diakui. Cerita mistis lokal menjadi daya tarik utama."
+            },
+            {
+                id: 23,
+                title: "Konser Band Internasional di GBK Sold Out",
+                category: "Hiburan",
+                author: "Music Indo",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1459749411177-0473ef7161a8?auto=format&fit=crop&q=80&w=600",
+                content: "Tiket ludes dalam 15 menit. Promotor berencana menambah jadwal konser menjadi dua hari karena antusiasme fans."
+            },
+            {
+                id: 24,
+                title: "Aktor Legendaris Raih Penghargaan Seumur Hidup",
+                category: "Hiburan",
+                author: "Seleb Update",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&q=80&w=600",
+                content: "Dedikasinya di dunia perfilman selama 50 tahun akhirnya diganjar penghargaan bergengsi di Festival Film Indonesia."
+            },
+
+            // Kategori: Otomotif
+            {
+                id: 25,
+                title: "Mobil Listrik Murah Serbu Pasar Indonesia",
+                category: "Otomotif",
+                author: "Oto Driver",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=600",
+                content: "Pabrikan China berlomba-lomba merilis city car listrik dengan harga di bawah 200 juta rupiah."
+            },
+            {
+                id: 26,
+                title: "Tips Merawat Motor Matic Agar Awet",
+                category: "Otomotif",
+                author: "Bengkel Pro",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=600",
+                content: "Ganti oli gardan secara rutin dan cek kondisi v-belt adalah kunci utama performa motor matic tetap prima."
+            },
+            {
+                id: 27,
+                title: "Pameran Otomotif GIIAS 2026 Dibuka Besok",
+                category: "Otomotif",
+                author: "Oto News",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600",
+                content: "Ratusan merek mobil dan motor akan memamerkan teknologi konsep masa depan mereka di ICE BSD."
+            },
+
+            // Kategori: Kesehatan
+            {
+                id: 28,
+                title: "Manfaat Minum Air Putih Setelah Bangun Tidur",
+                category: "Kesehatan",
+                author: "Dokter Sehat",
+                date: "20 Jan 2026",
+                image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&q=80&w=600",
+                content: "Membantu metabolisme dan membuang racun sisa pencernaan semalam. Kebiasaan sederhana yang berdampak besar."
+            },
+            {
+                id: 29,
+                title: "Waspada Gejala Baru Virus Flu Musiman",
+                category: "Kesehatan",
+                author: "Kemenkes",
+                date: "19 Jan 2026",
+                image: "https://images.unsplash.com/photo-1584036561566-b93a50208c3c?auto=format&fit=crop&q=80&w=600",
+                content: "Demam tinggi disertai nyeri sendi menjadi ciri khas varian flu kali ini. Segera periksa ke dokter jika gejala berlanjut."
+            },
+            {
+                id: 30,
+                title: "Tren Makanan Plant-Based Kian Populer",
+                category: "Kesehatan",
+                author: "Vegan Life",
+                date: "18 Jan 2026",
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=600",
+                content: "Restoran cepat saji pun kini menyediakan menu burger nabati. Gaya hidup sehat semakin mudah diakses masyarakat perkotaan."
+            }
+        ];
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            populateHomeGrid();
+            
+            // Set current date
+            const dateElement = document.getElementById('current-date');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = new Date().toLocaleDateString('id-ID', options);
+        });
+
+        // --- NAVIGATION LOGIC ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.add('hidden-page');
+            });
+            
+            // Show requested page
+            const target = document.getElementById(`page-${pageId}`);
+            if(target) {
+                target.classList.remove('hidden-page');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // --- RENDER FUNCTIONS ---
+        function populateHomeGrid() {
+            const grid = document.getElementById('latest-news-grid');
+            grid.innerHTML = '';
+            
+            // Show items starting from index 4 to 16 (12 items)
+            // Skip the first 4 because they might be in the hero/sidebar section
+            // In a real app, you'd filter out the hero ID. Here simply taking a slice.
+            const latest = articles.slice(4, 16); 
+
+            latest.forEach(article => {
+                const card = createNewsCard(article);
+                grid.innerHTML += card;
+            });
+        }
+
+        function createNewsCard(article) {
+            return `
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition cursor-pointer flex flex-col h-full" onclick="showArticle(${article.id})">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition duration-300 hover:scale-110">
+                        <span class="absolute top-2 right-2 bg-white/90 text-gray-800 text-xs font-bold px-2 py-1 rounded shadow-sm">${article.category}</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-3 h-3"></i> ${article.date}
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2 leading-snug hover:text-blue-700 line-clamp-2">${article.title}</h3>
+                        <p class="text-sm text-gray-500 line-clamp-3 mb-4 flex-grow">${article.content.substring(0, 80)}...</p>
+                        <span class="text-blue-600 text-sm font-semibold hover:underline mt-auto">Baca Selengkapnya</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- DYNAMIC PAGE CONTENT ---
+        function showArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            document.getElementById('detail-title').textContent = article.title;
+            document.getElementById('detail-category').textContent = article.category;
+            document.getElementById('detail-author').textContent = article.author;
+            document.getElementById('detail-date').textContent = article.date;
+            document.getElementById('detail-image').src = article.image;
+            document.getElementById('detail-content').textContent = article.content + " " + article.content + " " + article.content; // Repeater for length
+            
+            showPage('article');
+        }
+
+        function showCategory(categoryName) {
+            const grid = document.getElementById('category-grid');
+            const title = document.getElementById('category-title');
+            
+            grid.innerHTML = '';
+            title.textContent = categoryName === 'Terkini' ? 'Berita Terkini' : `Kategori: ${categoryName}`;
+            
+            // Filter articles
+            let filtered = [];
+            if (categoryName === 'Terkini') {
+                filtered = articles;
+            } else {
+                filtered = articles.filter(a => a.category === categoryName);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-3 text-center text-gray-500 py-10">Belum ada berita di kategori ini.</p>`;
+            } else {
+                filtered.forEach(article => {
+                    grid.innerHTML += createNewsCard(article);
+                });
+            }
+            
+            // Re-initialize icons for new content
+            setTimeout(() => { lucide.createIcons(); }, 100);
+            
+            showPage('category');
+        }
+    </script>
+</body>
+</html>

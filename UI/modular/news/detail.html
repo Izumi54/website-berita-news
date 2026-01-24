@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita - LPM Lensa Media</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#09090b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased font-serif selection:bg-rose-100 selection:text-rose-900">
+
+    <!-- Navbar Placeholder (In real app, included via layout) -->
+    <div class="h-20 bg-white border-b flex items-center justify-center text-gray-400 text-sm">
+        [ Navbar Component Included Here ]
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Breadcrumbs -->
+        <nav class="flex mb-6 text-sm text-gray-500 font-sans" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="#" class="hover:text-primary transition">Beranda</a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-xs mx-2"></i>
+                        <a href="#" class="hover:text-primary transition">Berita</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-xs mx-2"></i>
+                        <span class="text-gray-800 font-medium">Politik Kampus</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <!-- Main Content (8 Cols) -->
+            <article class="col-span-1 lg:col-span-8">
+                
+                <!-- Article Header -->
+                <header class="mb-8">
+                    <span class="bg-rose-100 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block font-sans">Politik Kampus</span>
+                    <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+                        Rektorat Janjikan Transparansi Dana UKT Tahun 2026: Mahasiswa Menunggu Realisasi
+                    </h1>
+                    
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-6 font-sans text-sm text-gray-500">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                                <div>
+                                    <span class="block font-bold text-gray-900">Ahmad Zaky</span>
+                                    <span class="text-xs">Jurnalis Utama</span>
+                                </div>
+                            </div>
+                            <span class="hidden md:inline text-gray-300">|</span>
+                            <span class="flex items-center gap-1"><i class="far fa-clock"></i> 24 Jan 2026</span>
+                        </div>
+                        
+                        <!-- Share Buttons -->
+                        <div class="flex gap-2">
+                            <button class="w-8 h-8 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition flex items-center justify-center"><i class="fab fa-facebook-f"></i></button>
+                            <button class="w-8 h-8 rounded-full bg-green-500 text-white hover:bg-green-600 transition flex items-center justify-center"><i class="fab fa-whatsapp"></i></button>
+                            <button class="w-8 h-8 rounded-full bg-black text-white hover:bg-gray-800 transition flex items-center justify-center"><i class="fab fa-twitter"></i></button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Featured Image -->
+                <figure class="mb-10 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format" class="w-full h-auto object-cover" alt="Suasana Rapat Rektorat">
+                    <figcaption class="text-center text-xs text-gray-500 mt-2 font-sans italic">Suasana audiensi terbuka antara BEM dan pihak Rektorat (Foto: Dok. LPM)</figcaption>
+                </figure>
+
+                <!-- Article Body (Typography Optimized) -->
+                <div class="prose prose-lg prose-rose max-w-none mb-12 text-gray-700 leading-loose">
+                    <p class="mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                        YOGYAKARTA - Polemik kenaikan Uang Kuliah Tunggal (UKT) yang memicu gelombang protes mahasiswa sejak awal tahun akhirnya menemui titik terang. Dalam audiensi terbuka yang digelar Sabtu (24/1), pihak rektorat secara resmi menjanjikan transparansi penuh terkait alokasi dana pendidikan.
+                    </p>
+                    <p class="mb-6">
+                        "Kami mendengar aspirasi mahasiswa. Mulai semester depan, laporan keuangan universitas akan dapat diakses publik melalui portal resmi," ujar Wakil Rektor II Bidang Keuangan di hadapan ratusan perwakilan mahasiswa.
+                    </p>
+                    <h3 class="text-2xl font-sans font-bold text-gray-900 mt-8 mb-4">Tuntutan Mahasiswa</h3>
+                    <p class="mb-6">
+                        Ketua BEM Universitas, Rina Mariani, menyambut baik janji tersebut namun tetap skeptis. "Janji lisan saja tidak cukup. Kami butuh pakta integritas tertulis," tegasnya. Menurut data BEM, terjadi kenaikan UKT sebesar 15% pada golongan menengah tanpa peningkatan fasilitas yang signifikan.
+                    </p>
+                    <blockquote class="border-l-4 border-primary pl-4 italic my-8 bg-gray-50 py-4 pr-4 rounded-r-lg">
+                        "Transparansi bukan opsi, melainkan kewajiban institusi publik. Jika bulan depan tidak ada realisasi, kami akan turun ke jalan kembali." <br>
+                        <span class="not-italic font-bold text-sm text-primary mt-2 block font-sans">- Rina Mariani, Ketua BEM</span>
+                    </blockquote>
+                    <p class="mb-6">
+                        Sementara itu, pengamat pendidikan dari Institute for Education Reform, Budi Santoso, menilai langkah transparansi ini bisa menjadi preseden baik bagi kampus-kampus lain di Indonesia yang mengalami masalah serupa.
+                    </p>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-10 font-sans">
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#UKT</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#DemoMahasiswa</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#KampusMerdeka</span>
+                </div>
+
+                <!-- Comments Section -->
+                <section class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm font-sans">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        Komentar <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">12</span>
+                    </h3>
+                    
+                    <!-- Comment Form -->
+                    <div class="flex gap-4 mb-8">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0"></div>
+                        <div class="flex-grow">
+                            <textarea placeholder="Tulis komentar..." class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition"></textarea>
+                            <button class="mt-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-rose-700 transition">Kirim Komentar</button>
+                        </div>
+                    </div>
+
+                    <!-- Comment List -->
+                    <div class="space-y-6">
+                        <!-- Comment 1 -->
+                        <div class="flex gap-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <div class="bg-gray-50 p-3 rounded-lg rounded-tl-none">
+                                    <span class="font-bold text-sm text-gray-900 block">Dina Kusuma</span>
+                                    <p class="text-sm text-gray-600">Semoga benar-benar direalisasikan, bukan cuma janji manis penenang massa.</p>
+                                </div>
+                                <div class="flex gap-4 mt-1 text-xs text-gray-400 font-medium">
+                                    <button class="hover:text-primary">Suka</button>
+                                    <button class="hover:text-primary">Balas</button>
+                                    <span>2 jam lalu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- Sidebar (4 Cols) -->
+            <aside class="col-span-1 lg:col-span-4 font-sans space-y-8">
+                 
+                <!-- Using Iframe to load modular Sidebar for prototype (or just hardcoded for speed) -->
+                <!-- We will hardcode the sidebar content here for the standalone file to work perfectly -->
+                
+                <!-- Widget: Search -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                         Pencarian
+                    </h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Cari berita..." class="w-full bg-gray-50 border border-gray-200 text-gray-700 px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                        <button class="absolute right-3 top-3 text-gray-400 hover:text-primary"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Widget: Popular News -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold text-gray-900 text-lg">Terpopuler</h3>
+                        <span class="text-xs font-semibold text-primary bg-rose-50 px-2 py-1 rounded">Minggu Ini</span>
+                    </div>
+                    
+                    <div class="space-y-5">
+                        <a href="#" class="flex gap-4 group">
+                            <span class="text-3xl font-black text-gray-200 group-hover:text-primary transition leading-none">1</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                                    Mahasiswa Demo Tuntut Perbaikan Fasilitas...
+                                </h4>
+                                <span class="text-xs text-gray-400 mt-1 block">1.2k dibaca</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex gap-4 group">
+                            <span class="text-3xl font-black text-gray-200 group-hover:text-primary transition leading-none">2</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                                    Tim Robotik Kampus Raih Emas...
+                                </h4>
+                                <span class="text-xs text-gray-400 mt-1 block">900 dibaca</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Widget: Ads Placeholder -->
+                <div class="bg-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group">
+                     <span class="text-sm font-semibold relative z-10">Space Iklan (300x250)</span>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Related News -->
+        <section class="mt-20 border-t border-gray-200 pt-10">
+            <h2 class="text-2xl font-serif font-bold text-gray-900 mb-8">Berita Terkait</h2>
+            <div class="grid md:grid-cols-3 gap-6 font-sans">
+                <!-- Related Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?q=80&w=2070&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Rektorat Gelar Dialog Terbuka Lanjutan</h3>
+                </div>
+                 <!-- Related Card 2 -->
+                 <div class="group cursor-pointer">
+                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=2070&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Opini: Transparansi Anggaran adalah Kunci</h3>
+                </div>
+                 <!-- Related Card 3 -->
+                 <div class="group cursor-pointer">
+                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1740&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Sejarah Gerakan Mahasiswa di Kampus Ini</h3>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div class="h-20 bg-gray-900 flex items-center justify-center text-gray-500 text-sm">
+        [ Footer Component Included Here ]
+    </div>
+
+</body>
+</html>
