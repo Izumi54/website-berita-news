@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPM Lensa Media - Golden Prototype</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48', // Rose-600
+                        secondary: '#09090b', // Zinc-950
+                        surface: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        
+        /* Magazine Hover Effect */
+        .book-container:hover .book {
+            transform: rotateY(-30deg) rotateX(10deg);
+            box-shadow: 20px 20px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased font-sans selection:bg-rose-100 selection:text-rose-900">
+
+    <!-- ==============================================
+         NAVBAR (Copied from UI/modular/core/navbar.html)
+         ============================================== -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass border-b border-gray-200/50" id="navbar">
+        <!-- Top Bar -->
+        <div class="bg-secondary text-white text-xs py-2 hidden md:block">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <span class="font-bold text-primary uppercase tracking-wider animate-pulse">Live Update</span>
+                    <div class="h-4 w-[1px] bg-gray-700"></div>
+                    <div class="overflow-hidden h-4 w-96 relative">
+                         <!-- Simple marquee simulation with text -->
+                        <p class="truncate text-gray-300 absolute w-full animate-marquee">Pendaftaran anggota baru dibuka mulai 1 Februari 2026...</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-400">Sabtu, 24 Januari 2026</span>
+                    <div class="flex gap-3">
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Nav -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Branding -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-10 h-10 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-primary/20 rounded-lg transform rotate-6 group-hover:rotate-12 transition duration-300"></div>
+                        <div class="absolute inset-0 bg-primary rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg shadow-primary/40">L</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-black text-2xl tracking-tight leading-none text-secondary">LENSA<span class="text-primary">MEDIA</span></span>
+                        <span class="text-[0.65rem] font-sans font-bold tracking-[0.2em] text-gray-500 uppercase">Suara Mahasiswa</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="#beranda" class="px-4 py-2 text-sm font-semibold text-gray-900 hover:text-primary rounded-full transition relative group">
+                        Beranda
+                        <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></span>
+                    </a>
+                    <a href="#berita" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-primary rounded-full transition">Berita</a>
+                    <a href="#majalah" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-primary rounded-full transition">E-Majalah</a>
+                    <a href="#kenangan" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-primary rounded-full transition">Galeri</a>
+                    <a href="#kerjasama" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-primary rounded-full transition">Partnership</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button class="w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:text-primary hover:border-primary hover:bg-rose-50 flex items-center justify-center transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="#" class="bg-secondary hover:bg-black text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-gray-200 hover:shadow-xl transition transform hover:-translate-y-0.5">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==============================================
+         1. HERO SECTION (Bento Grid)
+         ============================================== -->
+    <section id="beranda" class="pt-32 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-auto md:h-[500px]">
+            <!-- Main Hero -->
+            <div class="col-span-1 md:col-span-3 relative rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Main News">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-3/4">
+                    <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-lg shadow-rose-900/50 backdrop-blur-md">Headline</span>
+                    <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight group-hover:underline decoration-primary decoration-4 underline-offset-8">
+                        Rektorat Janjikan Transparansi Dana UKT Tahun 2026
+                    </h1>
+                    <div class="flex items-center gap-4 text-gray-300 text-xs md:text-sm font-medium">
+                        <span class="flex items-center gap-2"><i class="far fa-user"></i> Ahmad Zaky</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-2"><i class="far fa-clock"></i> 24 Jan 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Stories -->
+            <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+                <div class="relative flex-1 rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1477281765962-ef34e8bb09cc?q=80&w=2074&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Sub 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-rose-400 text-xs font-bold uppercase mb-1 block">Kampus</span>
+                        <h3 class="text-lg font-serif font-bold text-white leading-snug group-hover:text-rose-300 transition">Gedung PKM Baru Diresmikan</h3>
+                    </div>
+                </div>
+                <div class="relative flex-1 rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Sub 2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-amber-400 text-xs font-bold uppercase mb-1 block">Opini</span>
+                        <h3 class="text-lg font-serif font-bold text-white leading-snug group-hover:text-amber-300 transition">Mengapa AI Tak Gantikan Jurnalis</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         2. NEWS FEED (Standard Cards)
+         ============================================== -->
+    <section id="berita" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-2">Berita Terkini</h2>
+                    <div class="w-20 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <a href="#" class="text-primary font-bold hover:text-rose-800 transition flex items-center gap-2">
+                    Lihat Semua <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-56 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">POLITIK</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-gray-900 mb-2 leading-snug group-hover:text-primary transition line-clamp-2">
+                        DPR Sahkan RUU Perlindungan Data Pribadi
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Setelah pembahasan alot bertahun-tahun, akhirnya payung hukum ini disahkan.</p>
+                    <div class="flex items-center text-xs text-gray-400 font-medium">
+                        <span>2 jam lalu</span> • <span>5 min baca</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-56 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-secondary text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">TEKNO</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-gray-900 mb-2 leading-snug group-hover:text-primary transition line-clamp-2">
+                        Review Laptop Merah Putih Buatan Anak Bangsa
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Spesifikasi mumpuni dengan harga yang sangat terjangkau bagi mahasiswa.</p>
+                    <div class="flex items-center text-xs text-gray-400 font-medium">
+                        <span>4 jam lalu</span> • <span>7 min baca</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-56 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-green-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">SAINS</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-gray-900 mb-2 leading-snug group-hover:text-primary transition line-clamp-2">
+                        Penemuan Spesies Anggrek Baru di Hutan Kalimantan
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tim peneliti botani universitas berhasil mengidentifikasi varian genetik unik.</p>
+                    <div class="flex items-center text-xs text-gray-400 font-medium">
+                        <span>1 hari lalu</span> • <span>3 min baca</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         3. E-MAJALAH 3D (Showcase)
+         ============================================== -->
+    <section id="majalah" class="py-20 bg-zinc-900 overflow-hidden relative">
+        <!-- Decoration BG -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="text-white">
+                    <span class="text-primary font-bold tracking-widest uppercase mb-2 block">Edisi Terbaru</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">Membaca Tidak Pernah <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-200">Seimarjiner Ini.</span></h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Nikmati majalah digital interaktif dengan liputan mendalam, infografis memukau, dan analisis tajam. Gratis untuk mahasiswa.
+                    </p>
+                    <button class="bg-primary hover:bg-rose-700 text-white px-8 py-4 rounded-full font-bold transition shadow-lg shadow-primary/25 flex items-center gap-3 group">
+                        Baca Sekarang <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </button>
+                    
+                    <div class="mt-12 flex gap-8 border-t border-gray-800 pt-8">
+                        <div>
+                            <span class="block text-3xl font-black text-white">24+</span>
+                            <span class="text-sm text-gray-500">Volume Terbit</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-black text-white">1.5k</span>
+                            <span class="text-sm text-gray-500">Pembaca Bulanan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Book Component -->
+                <div class="flex justify-center perspective-1000">
+                    <div class="group relative w-72 h-[450px] transition-all duration-700 ease-out transform-style-3d cursor-pointer hover:rotate-y-[-20deg] hover:rotate-x-[10deg]">
+                        <!-- Cover -->
+                        <div class="absolute inset-0 bg-white rounded-r-2xl overflow-hidden shadow-2xl z-10 border-l-4 border-gray-300 transform transition">
+                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1588&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/50 to-transparent p-8 pt-24">
+                                <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block">VOL. 25</span>
+                                <h3 class="text-white font-serif font-bold text-3xl leading-none">Wajah Baru<br>Pendidikan</h3>
+                            </div>
+                        </div>
+                         <!-- Pages (Thickness) -->
+                         <div class="absolute top-1 right-0 w-8 h-[98%] bg-white border-r border-gray-200 transform translate-z-[-4px] translate-x-[4px] rounded-r-md bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0wIDBoNHY0SDB6IiBmaWxsPSIjZjNmNGY2IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')]"></div>
+                         <!-- Shadow Blob -->
+                         <div class="absolute bottom-[-40px] left-10 w-full h-20 bg-black/50 blur-2xl rounded-full transform rotate-x-[80deg] z-[-1] opacity-50 group-hover:opacity-80 transition duration-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         4. GALLERY (Masonry)
+         ============================================== -->
+    <section id="kenangan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Galeri Dokumentasi</h2>
+                <div class="w-24 h-1.5 bg-primary mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto">Momen-momen berharga dalam perjalanan kami mengawal demokrasi kampus.</p>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <div class="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1587&auto=format" class="w-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+                <div class="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format" class="w-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+                <div class="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1588&auto=format" class="w-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+                 <div class="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format" class="w-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+                <div class="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format" class="w-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         FOOTER (Copied from UI/modular/core/footer.html)
+         ============================================== -->
+    <footer class="bg-zinc-950 text-white pt-20 pb-10 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-xl">L</div>
+                        <span class="font-serif font-black text-2xl tracking-tight">LENSA<span class="text-primary">MEDIA</span></span>
+                    </div>
+                    <p class="text-zinc-500 max-w-sm">Media independen mahasiswa yang berdedikasi untuk kebenaran dan transparansi.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                     <h4 class="font-bold text-white mb-6">Navigasi</h4>
+                     <ul class="space-y-2 text-zinc-500 text-sm">
+                         <li><a href="#" class="hover:text-primary">Beranda</a></li>
+                         <li><a href="#" class="hover:text-primary">Redaksi</a></li>
+                         <li><a href="#" class="hover:text-primary">Karir</a></li>
+                     </ul>
+                </div>
+                <!-- Social -->
+                 <div>
+                    <h4 class="font-bold text-white mb-6">Ikuti Kami</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center hover:bg-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+               </div>
+            </div>
+            <div class="border-t border-zinc-900 pt-8 text-center text-zinc-700 text-sm">
+                &copy; 2026 LPM Lensa Media. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

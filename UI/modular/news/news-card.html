@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: News Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#09090b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- COMPONENT START: News Card -->
+    <div class="max-w-sm bg-white rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(225,29,72,0.1)] hover:-translate-y-1">
+        <!-- Image Container -->
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="News Thumb">
+            <div class="absolute top-4 left-4">
+                <span class="bg-white/90 backdrop-blur-sm text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                    POLITIK
+                </span>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6">
+            <h3 class="font-serif font-bold text-xl text-gray-900 mb-3 leading-snug group-hover:text-primary transition line-clamp-2">
+                DPR Sahkan RUU Perlindungan Data Pribadi Jadi Undang-Undang
+            </h3>
+            <p class="text-gray-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Setelah pembahasan alot selama 7 tahun, akhirnya payung hukum perlindungan data pribadi disahkan...
+            </p>
+            
+            <!-- Meta -->
+            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-gray-200 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-xs font-medium text-gray-600">Siti Rahma</span>
+                </div>
+                <span class="text-xs text-gray-400">2 jam lalu</span>
+            </div>
+        </div>
+    </div>
+    <!-- COMPONENT END: News Card -->
+
+</body>
+</html>

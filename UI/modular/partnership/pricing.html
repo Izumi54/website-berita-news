@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Partnership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#09090b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- COMPONENT START: Partnership Cards -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Bronze -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition duration-300">
+            <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center text-xl mb-6">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Media Partner</h3>
+            <p class="text-gray-500 text-sm mt-2 mb-6">Publikasi event kampus dan organisasi non-profit.</p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-600">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> 1x Feed Instagram</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> 1x Story Instagram</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Logo di Website</li>
+            </ul>
+            <button class="w-full py-3 rounded-lg border border-gray-200 font-bold text-gray-700 hover:border-gray-400 transition">Ajukan Gratis</button>
+        </div>
+
+        <!-- Gold (Highlighted) -->
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-2xl relative overflow-hidden transform md:-translate-y-4">
+            <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULER</div>
+            <div class="w-12 h-12 bg-gray-800 text-primary rounded-lg flex items-center justify-center text-xl mb-6">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Paid Promote</h3>
+            <p class="text-gray-400 text-sm mt-2 mb-6">Promosi bisnis/usaha ke ribuan mahasiswa aktif.</p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> 3x Feed + Keep 7 Hari</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> 5x Story Instagram</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Caption Copywriting</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Laporan Insight</li>
+            </ul>
+            <button class="w-full py-3 rounded-lg bg-primary hover:bg-rose-700 text-white font-bold transition shadow-lg shadow-rose-900/40">Hubungi Admin</button>
+        </div>
+
+        <!-- Silver -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition duration-300">
+            <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-lg flex items-center justify-center text-xl mb-6">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Sponsorship</h3>
+            <p class="text-gray-500 text-sm mt-2 mb-6">Branding eksklusif di event besar tahunan LPM.</p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-600">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Logo di Banner Utama</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Ad-lib saat Acara</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Booth Stand</li>
+            </ul>
+            <button class="w-full py-3 rounded-lg border border-gray-200 font-bold text-gray-700 hover:border-gray-400 transition">Lihat Proposal</button>
+        </div>
+
+    </div>
+    <!-- COMPONENT END: Partnership Cards -->
+
+</body>
+</html>

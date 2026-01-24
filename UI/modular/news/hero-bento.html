@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Hero Bento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#09090b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- COMPONENT START: Hero Bento -->
+    <section class="max-w-7xl mx-auto pt-24 pb-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-auto md:h-[500px]">
+            
+            <!-- Main Hero (Col Span 3) -->
+            <div class="col-span-1 md:col-span-3 relative rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Main News">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-3/4">
+                    <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-lg shadow-rose-900/50">Laporan Utama</span>
+                    <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight group-hover:underline decoration-primary decoration-4 underline-offset-8">
+                        Rektorat Janjikan Transparansi Dana UKT Tahun 2026
+                    </h1>
+                    <div class="flex items-center gap-4 text-gray-300 text-sm">
+                        <div class="flex items-center gap-2">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-6 h-6 rounded-full border border-white/30">
+                            <span>Ahmad Zaky</span>
+                        </div>
+                        <span>•</span>
+                        <span>24 Jan 2026</span>
+                        <span>•</span>
+                        <span>5 min baca</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub Headlines (Col Span 1 - Vertical Stack) -->
+            <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+                
+                <!-- Sub 1 -->
+                <div class="relative flex-1 rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1477281765962-ef34e8bb09cc?q=80&w=2074&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Sub 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-rose-400 text-xs font-bold uppercase mb-1 block">Kampus</span>
+                        <h3 class="text-lg font-serif font-bold text-white leading-snug group-hover:text-rose-300 transition">
+                            Gedung PKM Baru Diresmikan Hari Ini
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Sub 2 -->
+                <div class="relative flex-1 rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Sub 2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-amber-400 text-xs font-bold uppercase mb-1 block">Opini</span>
+                        <h3 class="text-lg font-serif font-bold text-white leading-snug group-hover:text-amber-300 transition">
+                            Mengapa AI Tidak Bisa Gantikan Jurnalis
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- COMPONENT END: Hero Bento -->
+
+</body>
+</html>
