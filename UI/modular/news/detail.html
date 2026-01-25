@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Berita - LPM Lensa Media</title>
+    <title>Transformasi Digital: Kunci Pertumbuhan Ekonomi - NewsPortal ID</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,146 +26,214 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased font-serif selection:bg-rose-100 selection:text-rose-900">
 
-    <!-- Navbar Placeholder (In real app, included via layout) -->
-    <div class="h-20 bg-white border-b flex items-center justify-center text-gray-400 text-sm">
-        [ Navbar Component Included Here ]
+    <!-- Navbar Wrapper (Simulated) -->
+    <div class="h-16 bg-white border-b flex items-center justify-center text-gray-400 text-sm italic font-sans shadow-sm mb-6 sticky top-0 z-50">
+        [ Navbar Component (Sticky) ]
     </div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         
         <!-- Breadcrumbs -->
-        <nav class="flex mb-6 text-sm text-gray-500 font-sans" aria-label="Breadcrumb">
+        <nav class="flex mb-8 text-sm text-gray-500 font-sans" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
-                    <a href="#" class="hover:text-primary transition">Beranda</a>
+                    <a href="../index.html" class="hover:text-primary transition flex items-center gap-1">
+                        <i class="fas fa-home"></i> Home
+                    </a>
                 </li>
                 <li>
                     <div class="flex items-center">
                         <i class="fas fa-chevron-right text-xs mx-2"></i>
-                        <a href="#" class="hover:text-primary transition">Berita</a>
+                        <a href="#" class="hover:text-primary transition">Ekonomi</a>
                     </div>
                 </li>
                 <li>
                     <div class="flex items-center">
                         <i class="fas fa-chevron-right text-xs mx-2"></i>
-                        <span class="text-gray-800 font-medium">Politik Kampus</span>
+                        <a href="#" class="hover:text-primary transition">Bisnis Digital</a>
                     </div>
                 </li>
             </ol>
         </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             <!-- Main Content (8 Cols) -->
-            <article class="col-span-1 lg:col-span-8">
+            <article class="col-span-1 lg:col-span-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm ring-1 ring-gray-100">
                 
                 <!-- Article Header -->
-                <header class="mb-8">
-                    <span class="bg-rose-100 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block font-sans">Politik Kampus</span>
-                    <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
-                        Rektorat Janjikan Transparansi Dana UKT Tahun 2026: Mahasiswa Menunggu Realisasi
+                <header class="mb-10 text-center md:text-left">
+                    <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block font-sans shadow-md shadow-blue-500/30">
+                        Ekonomi
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
+                        Transformasi Digital: Kunci Pertumbuhan Ekonomi Indonesia 2026
                     </h1>
                     
-                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-6 font-sans text-sm text-gray-500">
+                    <div class="flex flex-wrap items-center justify-between gap-6 border-y border-gray-100 py-6 font-sans text-sm text-gray-500">
                         <div class="flex items-center gap-4">
                             <div class="flex items-center gap-3">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm">
                                 <div>
-                                    <span class="block font-bold text-gray-900">Ahmad Zaky</span>
-                                    <span class="text-xs">Jurnalis Utama</span>
+                                    <span class="block font-bold text-gray-900">Budi Santoso</span>
+                                    <span class="text-xs text-primary font-semibold">Senior Editor</span>
                                 </div>
                             </div>
-                            <span class="hidden md:inline text-gray-300">|</span>
-                            <span class="flex items-center gap-1"><i class="far fa-clock"></i> 24 Jan 2026</span>
+                            <span class="hidden md:inline h-8 w-[1px] bg-gray-200"></span>
+                            <div class="flex flex-col">
+                                <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i> 23 Jan 2026</span>
+                                <span class="text-xs">14:00 WIB</span>
+                            </div>
                         </div>
                         
                         <!-- Share Buttons -->
                         <div class="flex gap-2">
-                            <button class="w-8 h-8 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition flex items-center justify-center"><i class="fab fa-facebook-f"></i></button>
-                            <button class="w-8 h-8 rounded-full bg-green-500 text-white hover:bg-green-600 transition flex items-center justify-center"><i class="fab fa-whatsapp"></i></button>
-                            <button class="w-8 h-8 rounded-full bg-black text-white hover:bg-gray-800 transition flex items-center justify-center"><i class="fab fa-twitter"></i></button>
+                            <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-[#1877F2] hover:text-white transition flex items-center justify-center text-lg"><i class="fab fa-facebook-f"></i></button>
+                            <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-[#1DA1F2] hover:text-white transition flex items-center justify-center text-lg"><i class="fab fa-twitter"></i></button>
+                            <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-[#25D366] hover:text-white transition flex items-center justify-center text-lg"><i class="fab fa-whatsapp"></i></button>
+                            <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-gray-800 hover:text-white transition flex items-center justify-center text-lg"><i class="fas fa-link"></i></button>
                         </div>
                     </div>
                 </header>
 
                 <!-- Featured Image -->
-                <figure class="mb-10 rounded-2xl overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format" class="w-full h-auto object-cover" alt="Suasana Rapat Rektorat">
-                    <figcaption class="text-center text-xs text-gray-500 mt-2 font-sans italic">Suasana audiensi terbuka antara BEM dan pihak Rektorat (Foto: Dok. LPM)</figcaption>
+                <figure class="mb-12 -mx-8 md:mx-0">
+                    <div class="relative overflow-hidden md:rounded-2xl shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105" alt="Transformasi Digital">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white text-xs font-sans">Ilustrasi: Kantor modern berbasis teknologi (Unsplash)</span>
+                        </div>
+                    </div>
+                    <figcaption class="text-center text-xs text-gray-500 mt-3 font-sans italic">Pemerintah genjot infrastruktur digital di pedesaan (Foto: Arsip NewsPortal)</figcaption>
                 </figure>
 
-                <!-- Article Body (Typography Optimized) -->
-                <div class="prose prose-lg prose-rose max-w-none mb-12 text-gray-700 leading-loose">
-                    <p class="mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
-                        YOGYAKARTA - Polemik kenaikan Uang Kuliah Tunggal (UKT) yang memicu gelombang protes mahasiswa sejak awal tahun akhirnya menemui titik terang. Dalam audiensi terbuka yang digelar Sabtu (24/1), pihak rektorat secara resmi menjanjikan transparansi penuh terkait alokasi dana pendidikan.
+                <!-- Article Body -->
+                <div class="prose prose-lg prose-headings:font-bold prose-headings:font-sans prose-p:leading-loose prose-a:text-primary hover:prose-a:text-rose-700 prose-img:rounded-xl prose-rose max-w-none mb-12 text-gray-700">
+                    <p class="lead text-xl text-gray-600 mb-8 border-l-4 border-primary pl-6 py-2 italic font-sans">
+                        "Digitalisasi bukan lagi pilihan, melainkan keharusan bagi UMKM yang ingin bertahan dan berekspansi di pasar global."
                     </p>
+                    
+                    <p class="mb-6 first-letter:text-6xl first-letter:font-black first-letter:text-gray-900 first-letter:mr-3 first-letter:float-left">
+                        JAKARTA - Pemerintah optimis bahwa transformasi digital akan menjadi tulang punggung pertumbuhan ekonomi nasional tahun ini. Dengan investasi besar-besaran di sektor infrastruktur internet desa, diharapkan UMKM dapat menembus pasar global dengan lebih mudah.
+                    </p>
+                    
                     <p class="mb-6">
-                        "Kami mendengar aspirasi mahasiswa. Mulai semester depan, laporan keuangan universitas akan dapat diakses publik melalui portal resmi," ujar Wakil Rektor II Bidang Keuangan di hadapan ratusan perwakilan mahasiswa.
+                        Menteri Komunikasi dan Digital, dalam konferensi pers di Jakarta, Senin (23/1), menegaskan bahwa target 30 juta UMKM <em>on-boarding</em> digital telah tercapai lebih cepat dari jadwal. Ini menandakan adaptabilitas pelaku usaha mikro yang sangat tinggi.
                     </p>
-                    <h3 class="text-2xl font-sans font-bold text-gray-900 mt-8 mb-4">Tuntutan Mahasiswa</h3>
+
+                    <h3>Tantangan Keamanan Siber</h3>
                     <p class="mb-6">
-                        Ketua BEM Universitas, Rina Mariani, menyambut baik janji tersebut namun tetap skeptis. "Janji lisan saja tidak cukup. Kami butuh pakta integritas tertulis," tegasnya. Menurut data BEM, terjadi kenaikan UKT sebesar 15% pada golongan menengah tanpa peningkatan fasilitas yang signifikan.
+                        Namun, pertumbuhan pesat ini bukan tanpa risiko. Ketua Asosiasi Keamanan Siber, Dr. Rina Wijaya, mengingatkan akan pentingnya literasi digital. "Data menunjukkan peningkatan serangan <em>phishing</em> sebesar 40% menyasar pelaku usaha baru," ujarnya.
                     </p>
-                    <blockquote class="border-l-4 border-primary pl-4 italic my-8 bg-gray-50 py-4 pr-4 rounded-r-lg">
-                        "Transparansi bukan opsi, melainkan kewajiban institusi publik. Jika bulan depan tidak ada realisasi, kami akan turun ke jalan kembali." <br>
-                        <span class="not-italic font-bold text-sm text-primary mt-2 block font-sans">- Rina Mariani, Ketua BEM</span>
+                    <p>
+                        Oleh karena itu, pemerintah menyiapkan anggaran khusus untuk pelatihan keamanan siber bagi 10.000 pendamping UMKM di seluruh Indonesia.
+                    </p>
+
+                    <blockquote class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-xl not-italic font-sans">
+                        <p class="text-lg font-bold text-gray-800 mb-2">"Kita tidak hanya membangun jaringan fisik, tapi juga membangun ekosistem kepercayaan digital."</p>
+                        <footer class="text-sm text-gray-600">— Budi Arie, Pengamat Ekonomi Digital</footer>
                     </blockquote>
+
+                    <h3>Proyeksi 2027</h3>
                     <p class="mb-6">
-                        Sementara itu, pengamat pendidikan dari Institute for Education Reform, Budi Santoso, menilai langkah transparansi ini bisa menjadi preseden baik bagi kampus-kampus lain di Indonesia yang mengalami masalah serupa.
+                        Bank Indonesia memproyeksikan nilai transaksi e-commerce akan menembus angka Rp 700 triliun pada tahun 2027. Sektor logistik dan pembayaran digital diprediksi akan menjadi penerima manfaat terbesar dari lonjakan ini.
                     </p>
                 </div>
 
                 <!-- Tags -->
-                <div class="flex flex-wrap gap-2 mb-10 font-sans">
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#UKT</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#DemoMahasiswa</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm text-gray-600">#KampusMerdeka</span>
+                <div class="border-t border-gray-100 pt-8 mt-12 mb-12">
+                    <h4 class="font-sans font-bold text-gray-900 text-sm mb-4 uppercase tracking-wide">Topik Terkait</h4>
+                    <div class="flex flex-wrap gap-2 font-sans">
+                        <a href="#" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white rounded-full text-sm font-medium transition text-gray-600">#EkonomiDigital</a>
+                        <a href="#" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white rounded-full text-sm font-medium transition text-gray-600">#UMKM</a>
+                        <a href="#" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white rounded-full text-sm font-medium transition text-gray-600">#Startup</a>
+                        <a href="#" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white rounded-full text-sm font-medium transition text-gray-600">#Bisnis</a>
+                    </div>
+                </div>
+
+                <!-- Author Box -->
+                <div class="bg-gray-50 rounded-2xl p-8 flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left font-sans mb-12">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-20 h-20 rounded-full border-4 border-white shadow-md">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Budi Santoso</h4>
+                        <p class="text-xs font-bold text-primary uppercase tracking-wide mb-3">Senior Editor & Pengamat Ekonomi</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Jurnalis senior dengan pengalaman 15 tahun meliput isu makroekonomi dan teknologi finansial. Lulusan Terbaik Fakultas Ekonomi UI 2010.
+                        </p>
+                    </div>
+                    <button class="md:ml-auto px-6 py-2 border border-gray-300 rounded-full text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition whitespace-nowrap">
+                        Ikuti Berita
+                    </button>
                 </div>
 
                 <!-- Comments Section -->
-                <section class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm font-sans">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        Komentar <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">12</span>
+                <section class="border-t-4 border-gray-100 pt-10 font-sans">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        Komentar Pembaca <span class="bg-gray-100 text-gray-500 text-sm px-3 py-1 rounded-full">24</span>
                     </h3>
                     
                     <!-- Comment Form -->
-                    <div class="flex gap-4 mb-8">
-                        <div class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0"></div>
+                    <div class="flex gap-4 mb-10">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-gray-400">
+                            <i class="fas fa-user"></i>
+                        </div>
                         <div class="flex-grow">
-                            <textarea placeholder="Tulis komentar..." class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition"></textarea>
-                            <button class="mt-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-rose-700 transition">Kirim Komentar</button>
+                            <div class="relative">
+                                <textarea placeholder="Tulis pendapat Anda yang berharga..." class="w-full bg-white border border-gray-200 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition shadow-sm h-32"></textarea>
+                                <div class="absolute bottom-3 right-3 text-xs text-gray-400">0/500</div>
+                            </div>
+                            <button class="mt-3 bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-rose-700 transition shadow-lg shadow-primary/30">
+                                Kirim Komentar
+                            </button>
                         </div>
                     </div>
 
                     <!-- Comment List -->
-                    <div class="space-y-6">
+                    <div class="space-y-8">
                         <!-- Comment 1 -->
-                        <div class="flex gap-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <div class="bg-gray-50 p-3 rounded-lg rounded-tl-none">
-                                    <span class="font-bold text-sm text-gray-900 block">Dina Kusuma</span>
-                                    <p class="text-sm text-gray-600">Semoga benar-benar direalisasikan, bukan cuma janji manis penenang massa.</p>
+                        <div class="flex gap-4 group">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-sm">
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h5 class="font-bold text-sm text-gray-900">Siti Rahma</h5>
+                                    <span class="text-xs text-gray-400">2 jam lalu</span>
                                 </div>
-                                <div class="flex gap-4 mt-1 text-xs text-gray-400 font-medium">
-                                    <button class="hover:text-primary">Suka</button>
-                                    <button class="hover:text-primary">Balas</button>
-                                    <span>2 jam lalu</span>
+                                <p class="text-sm text-gray-700 leading-relaxed mb-2">Saya setuju sekali. Di desa saya, sejak masuk internet cepat, banyak ibu-ibu yang mulai jualan keripik pisang lewat marketplace. Omzet naik drastis!</p>
+                                <div class="flex gap-4 text-xs font-semibold text-gray-500">
+                                    <button class="hover:text-primary flex items-center gap-1"><i class="far fa-thumbs-up"></i> 12</button>
+                                    <button class="hover:text-primary flex items-center gap-1"><i class="far fa-comment-dots"></i> Balas</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment 2 -->
+                        <div class="flex gap-4 group">
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-sm">
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h5 class="font-bold text-sm text-gray-900">Andi Pratama</h5>
+                                    <span class="text-xs text-gray-400">5 jam lalu</span>
+                                </div>
+                                <p class="text-sm text-gray-700 leading-relaxed mb-2">Semoga pelatihannya merata sampai ke pelosok timur, jangan cuma Jawa sentris ya pak Menteri.</p>
+                                <div class="flex gap-4 text-xs font-semibold text-gray-500">
+                                    <button class="hover:text-primary flex items-center gap-1"><i class="far fa-thumbs-up"></i> 45</button>
+                                    <button class="hover:text-primary flex items-center gap-1"><i class="far fa-comment-dots"></i> Balas</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <button class="w-full mt-8 py-3 bg-gray-50 text-gray-600 font-bold rounded-xl hover:bg-gray-100 transition text-sm">
+                        Muat Komentar Lainnya
+                    </button>
                 </section>
 
             </article>
 
             <!-- Sidebar (4 Cols) -->
             <aside class="col-span-1 lg:col-span-4 font-sans space-y-8">
-                 
-                <!-- Using Iframe to load modular Sidebar for prototype (or just hardcoded for speed) -->
-                <!-- We will hardcode the sidebar content here for the standalone file to work perfectly -->
                 
-                <!-- Widget: Search -->
+                <!-- Search Widget -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
                          Pencarian
@@ -176,30 +244,39 @@
                     </div>
                 </div>
 
-                <!-- Widget: Popular News -->
+                <!-- Widget: Popular News (Dynamic General Content) -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold text-gray-900 text-lg">Terpopuler</h3>
-                        <span class="text-xs font-semibold text-primary bg-rose-50 px-2 py-1 rounded">Minggu Ini</span>
+                        <h3 class="font-bold text-gray-900 text-lg">Sedang Hangat</h3>
+                        <span class="text-xs font-semibold text-primary bg-rose-50 px-2 py-1 rounded">24 Jam</span>
                     </div>
                     
                     <div class="space-y-5">
                         <a href="#" class="flex gap-4 group">
                             <span class="text-3xl font-black text-gray-200 group-hover:text-primary transition leading-none">1</span>
                             <div>
+                                <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider mb-1 block">Teknologi</span>
                                 <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
-                                    Mahasiswa Demo Tuntut Perbaikan Fasilitas...
+                                    AI Generatif Mengubah Cara Kerja Desainer Grafis
                                 </h4>
-                                <span class="text-xs text-gray-400 mt-1 block">1.2k dibaca</span>
                             </div>
                         </a>
                         <a href="#" class="flex gap-4 group">
                             <span class="text-3xl font-black text-gray-200 group-hover:text-primary transition leading-none">2</span>
                             <div>
+                                <span class="text-[10px] font-bold text-green-500 uppercase tracking-wider mb-1 block">Olahraga</span>
                                 <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
-                                    Tim Robotik Kampus Raih Emas...
+                                    Persiapan Timnas Menjelang Piala Asia
                                 </h4>
-                                <span class="text-xs text-gray-400 mt-1 block">900 dibaca</span>
+                            </div>
+                        </a>
+                         <a href="#" class="flex gap-4 group">
+                            <span class="text-3xl font-black text-gray-200 group-hover:text-primary transition leading-none">3</span>
+                            <div>
+                                <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider mb-1 block">Ekonomi</span>
+                                <h4 class="font-serif font-bold text-gray-800 leading-snug group-hover:text-primary transition text-sm">
+                                    Nilai Tukar Rupiah Menguat Awal Pekan
+                                </h4>
                             </div>
                         </a>
                     </div>
@@ -207,6 +284,7 @@
 
                 <!-- Widget: Ads Placeholder -->
                 <div class="bg-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group">
+                     <div class="absolute inset-0 bg-gradient-to-tr from-gray-300 via-gray-200 to-gray-300 animate-pulse"></div>
                      <span class="text-sm font-semibold relative z-10">Space Iklan (300x250)</span>
                 </div>
 
@@ -215,38 +293,47 @@
         </div>
 
         <!-- Related News -->
-        <section class="mt-20 border-t border-gray-200 pt-10">
-            <h2 class="text-2xl font-serif font-bold text-gray-900 mb-8">Berita Terkait</h2>
-            <div class="grid md:grid-cols-3 gap-6 font-sans">
+        <section class="mt-20 pt-10 border-t border-gray-200">
+            <h2 class="text-2xl font-serif font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <span class="w-1.5 h-8 bg-primary rounded-full"></span>
+                Baca Juga
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 font-sans">
                 <!-- Related Card 1 -->
                 <div class="group cursor-pointer">
-                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
-                        <img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?q=80&w=2070&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <div class="relative h-48 rounded-2xl overflow-hidden mb-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-[10px] font-bold px-2 py-1 rounded text-gray-800">FINTECT</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Rektorat Gelar Dialog Terbuka Lanjutan</h3>
+                    <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition leading-snug mb-2">Startup Fintech Lokal Raih Pendanaan Seri B</h3>
+                    <span class="text-xs text-gray-500">19 Jan 2026</span>
                 </div>
                  <!-- Related Card 2 -->
                  <div class="group cursor-pointer">
-                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
-                        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=2070&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <div class="relative h-48 rounded-2xl overflow-hidden mb-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-[10px] font-bold px-2 py-1 rounded text-gray-800">JARINGAN</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Opini: Transparansi Anggaran adalah Kunci</h3>
+                    <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition leading-snug mb-2">Jaringan 6G Mulai Diuji Coba di Korea Selatan</h3>
+                    <span class="text-xs text-gray-500">18 Jan 2026</span>
                 </div>
                  <!-- Related Card 3 -->
                  <div class="group cursor-pointer">
-                    <div class="relative h-40 rounded-xl overflow-hidden mb-3">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1740&auto=format" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <div class="relative h-48 rounded-2xl overflow-hidden mb-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                         <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-[10px] font-bold px-2 py-1 rounded text-gray-800">DEVICE</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-primary transition leading-snug">Sejarah Gerakan Mahasiswa di Kampus Ini</h3>
+                    <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition leading-snug mb-2">Laptop Gaming Lokal Saingi Merek Internasional</h3>
+                    <span class="text-xs text-gray-500">15 Jan 2026</span>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer Placeholder -->
-    <div class="h-20 bg-gray-900 flex items-center justify-center text-gray-500 text-sm">
-        [ Footer Component Included Here ]
+    <!-- Footer Wrapper (Simulated) -->
+    <div class="h-20 bg-gray-900 flex items-center justify-center text-gray-500 text-sm italic font-sans mt-12">
+        [ Footer Component ]
     </div>
 
 </body>
