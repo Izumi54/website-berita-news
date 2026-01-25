@@ -6,32 +6,37 @@ Dokumen ini berfungsi sebagai "Backlog" untuk mencatat semua keinginan kustomisa
 
 Membuat UI yang "lebih bagus lagi" dan sepenuhnya sesuai dengan preferensi estetika pengguna, melampaui standar "Golden Prototype" saat ini.
 
-## 📝 Daftar Keinginan (Wishlist)
+## 🚀 Rekomendasi Upgrade Selanjutnya (Phase 3)
 
-_Silakan isi detail spesifik di bawah ini:_
+Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi langkah selanjutnya untuk membuat UI semakin menawan:
 
-### A. Visual & Estetika
+### 1. Dark Mode (Mode Gelap) 🌙
 
-- [ ] **Detail Spesifik**: (Contoh: Ganti font judul, ubah radius sudut kartu, animasi khusus)
-- [ ] **Warna**: (Apakah ada penyesuaian pada palet Rose Red?)
-- [ ] **Spacing/Layout**: (Apakah ingin layout yang lebih padat atau lebih renggang?)
+- **Status**: [ ] Belum Ada
+- **Benefit**: Meningkatkan kenyamanan membaca di malam hari dan memberikan kesan elegan/tech-savvy.
+- **Action**: Implementasi toggle switch dan variabel CSS untuk tema gelap.
 
-### B. Fitur Interaktif (Micro-Interactions)
+### 2. Kategori & Arsip Berita 📂
 
-- [ ] **Hover Effects**: (Costumisasi efek saat cursor diarahkan ke elemen)
-- [ ] **Loading States**: (Desain skeleton loading atau spinner khusus)
-- [ ] **Transitions**: (Animasi perpindahan halaman)
+- **Status**: [ ] Belum Ada (Baru Home & Detail)
+- **Benefit**: User perlu halaman khusus untuk melihat semua berita "Teknologi" atau "Ekonomi".
+- **Action**: Buat template `category.html` dengan list layout/grid layout.
 
-### C. Responsiveness (Mobile/Tablet)
+### 3. Mobile Experience Polish 📱
 
-- [ ] **Mobile Menu**: (Kustomisasi tampilan menu di HP)
-- [ ] **Touch Gestures**: (Swipe actions?)
+- **Status**: [ ] Basic
+- **Benefit**: 70% pembaca berita menggunakan HP.
+- **Action**:
+  - Bottom Navigation Bar (seperti aplikasi native).
+  - Gestur Swipe antar artikel.
+  - Animasi menu yang lebih smooth.
 
-### D. Advanced Components
+### 4. Skeleton Loading Screens ⏳
 
-- [ ] **Dark Mode Toggle**: (Opsional: Switch terang/gelap)
-- [ ] **Reading Mode**: (Fitur khusus di halaman detail berita)
+- **Status**: [ ] Belum Ada
+- **Benefit**: Memberikan kesan aplikasi yang _snappy_ dan cepat saat data sedang dimuat.
+- **Action**: Buat komponen skeleton (kotak abu-abu berkedip) pengganti spinner loading biasa.
 
 ---
 
-_Dokumen ini akan terus diupdate seiring diskusi berjalan._
+_Silakan pilih salah satu untuk kita kerjakan sekarang._
