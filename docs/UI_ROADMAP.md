@@ -24,7 +24,7 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 3. Mobile Experience Polish 📱
 
-- **Status**: [ ] Basic
+- **Status**: [/] Sedang Dikerjakan
 - **Benefit**: 70% pembaca berita menggunakan HP.
 - **Action**:
   - Bottom Navigation Bar (seperti aplikasi native).

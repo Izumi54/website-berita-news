@@ -88,6 +88,11 @@
         <!-- Main Nav -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleDrawer()" class="lg:hidden mr-4 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
                 <!-- Branding -->
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="relative w-10 h-10 flex items-center justify-center">
@@ -357,7 +362,95 @@
         </div>
     </footer>
 
+    <!-- ==============================================
+         MOBILE DRAWER (Side Menu)
+         ============================================== -->
+    <!-- Backdrop -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+    <!-- Drawer Panel -->
+    <div id="mobile-drawer" class="fixed top-0 left-0 h-full w-80 bg-white dark:bg-zinc-900 shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out border-r border-gray-100 dark:border-zinc-800 flex flex-col">
+        
+        <!-- Drawer Header -->
+        <div class="h-20 flex items-center justify-between px-6 border-b border-gray-100 dark:border-zinc-800">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white font-black">N</div>
+                <span class="font-serif font-black text-xl text-secondary dark:text-white">NEWS<span class="text-primary">PORTAL</span></span>
+            </div>
+            <button onclick="toggleDrawer()" class="text-gray-400 hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto py-6 px-6 space-y-6">
+            
+            <!-- Menu Links -->
+            <div>
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Menu Utama</h4>
+                <ul class="space-y-4 font-medium text-gray-700 dark:text-gray-300">
+                    <li><a href="#beranda" onclick="toggleDrawer()" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-home w-6 text-center text-gray-400"></i> Beranda</a></li>
+                    <li><a href="news/category.html" onclick="toggleDrawer()" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-globe-asia w-6 text-center text-gray-400"></i> Nasional</a></li>
+                    <li><a href="news/category.html" onclick="toggleDrawer()" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-microchip w-6 text-center text-gray-400"></i> Teknologi</a></li>
+                    <li><a href="news/category.html" onclick="toggleDrawer()" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-chart-line w-6 text-center text-gray-400"></i> Ekonomi</a></li>
+                    <li><a href="news/category.html" onclick="toggleDrawer()" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-running w-6 text-center text-gray-400"></i> Olahraga</a></li>
+                </ul>
+            </div>
+
+            <!-- Account Links -->
+            <div>
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Akun Saya</h4>
+                <ul class="space-y-4 font-medium text-gray-700 dark:text-gray-300">
+                    <li><a href="#" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-user-circle w-6 text-center text-gray-400"></i> Profil</a></li>
+                    <li><a href="#" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-bookmark w-6 text-center text-gray-400"></i> Berita Disimpan</a></li>
+                    <li><a href="#" class="flex items-center gap-4 hover:text-primary transition"><i class="fas fa-cog w-6 text-center text-gray-400"></i> Pengaturan</a></li>
+                </ul>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="bg-gray-100 dark:bg-zinc-800 rounded-xl p-4 text-center">
+                <span class="text-xs text-gray-400 block mb-2">Space Iklan Premium</span>
+                <div class="h-20 bg-gray-200 dark:bg-zinc-700 rounded-lg animate-pulse"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==============================================
+         MOBILE BOTTOM NAVIGATION (Fixed)
+         ============================================== -->
+    <div class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800 lg:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
+            <a href="#beranda" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-zinc-800 group transition">
+                <i class="fas fa-home text-primary mb-1 text-lg group-hover:scale-110 transition"></i>
+                <span class="text-[10px] text-primary">Home</span>
+            </a>
+            <a href="#" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-zinc-800 group transition text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                <i class="fas fa-compass mb-1 text-lg group-hover:scale-110 transition"></i>
+                <span class="text-[10px]">Explore</span>
+            </a>
+            <a href="news/category.html" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-zinc-800 group transition text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                <i class="fas fa-layer-group mb-1 text-lg group-hover:scale-110 transition"></i>
+                <span class="text-[10px]">Kategori</span>
+            </a>
+            <a href="#" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-zinc-800 group transition text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                <i class="fas fa-bookmark mb-1 text-lg group-hover:scale-110 transition"></i>
+                <span class="text-[10px]">Saved</span>
+            </a>
+            <a href="#" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-zinc-800 group transition text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                <i class="fas fa-user mb-1 text-lg group-hover:scale-110 transition"></i>
+                <span class="text-[10px]">Profil</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Spacing for Bottom Nav -->
+    <div class="h-16 lg:hidden"></div>
+
     <!-- Theme Logic -->
     <script src="js/theme.js"></script>
+    <!-- Drawer Logic -->
+    <script src="js/drawer.js"></script>
 </body>
 </html>
