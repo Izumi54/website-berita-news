@@ -12,7 +12,7 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 1. Dark Mode (Mode Gelap) 🌙
 
-- **Status**: [ ] Belum Ada
+- **Status**: [/] Sedang Dikerjakan
 - **Benefit**: Meningkatkan kenyamanan membaca di malam hari dan memberikan kesan elegan/tech-savvy.
 - **Action**: Implementasi toggle switch dan variabel CSS untuk tema gelap.
 
