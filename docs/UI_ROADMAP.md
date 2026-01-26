@@ -18,7 +18,7 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 2. Kategori & Arsip Berita 📂
 
-- **Status**: [ ] Belum Ada (Baru Home & Detail)
+- **Status**: [x] Selesai
 - **Benefit**: User perlu halaman khusus untuk melihat semua berita "Teknologi" atau "Ekonomi".
 - **Action**: Buat template `category.html` dengan list layout/grid layout.
 
