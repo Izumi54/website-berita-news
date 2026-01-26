@@ -12,7 +12,7 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 1. Dark Mode (Mode Gelap) 🌙
 
-- **Status**: [/] Sedang Dikerjakan
+- **Status**: [x] Selesai
 - **Benefit**: Meningkatkan kenyamanan membaca di malam hari dan memberikan kesan elegan/tech-savvy.
 - **Action**: Implementasi toggle switch dan variabel CSS untuk tema gelap.
 
@@ -24,7 +24,7 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 3. Mobile Experience Polish 📱
 
-- **Status**: [/] Sedang Dikerjakan
+- **Status**: [x] Selesai
 - **Benefit**: 70% pembaca berita menggunakan HP.
 - **Action**:
   - Bottom Navigation Bar (seperti aplikasi native).
@@ -33,7 +33,9 @@ Berdasarkan standar "Modern Premium News Portal", berikut adalah rekomendasi lan
 
 ### 4. Skeleton Loading Screens ⏳
 
-- **Status**: [ ] Belum Ada
+### 4. Skeleton Loading Screens ⏳
+
+- **Status**: [x] Selesai
 - **Benefit**: Memberikan kesan aplikasi yang _snappy_ dan cepat saat data sedang dimuat.
 - **Action**: Buat komponen skeleton (kotak abu-abu berkedip) pengganti spinner loading biasa.
 
