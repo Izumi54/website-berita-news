@@ -142,17 +142,33 @@
 
             // Simulate Server Check (Latency)
             setTimeout(() => {
-                // Simulate Error first (Security Best Practice: Don't reveal account existence immediately)
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-                alert.classList.remove('hidden');
-                
-                // Shake animation for UX
-                const container = document.querySelector('.max-w-md');
-                container.classList.add('animate-[shake_0.5s_ease-in-out]');
-                setTimeout(() => container.classList.remove('animate-[shake_0.5s_ease-in-out]'), 500);
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
 
-            }, 1500);
+                if (email === 'admin@newsportal.id') {
+                    // SUCCESS
+                    alert.classList.add('hidden');
+                    btn.innerHTML = '<i class="fas fa-check"></i> Redirecting...';
+                    btn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+                    btn.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 500);
+
+                } else {
+                    // ERROR (Simulated for generic Auth)
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    alert.classList.remove('hidden');
+                    
+                    // Shake animation for UX
+                    const container = document.querySelector('.max-w-md');
+                    container.classList.add('animate-[shake_0.5s_ease-in-out]');
+                    setTimeout(() => container.classList.remove('animate-[shake_0.5s_ease-in-out]'), 500);
+                }
+
+            }, 1000);
         }
     </script>
     <style>
