@@ -1,0 +1,60 @@
+<!-- FOOTER COMPONENT 
+     Path: src/lib/components/Footer.html
+     Pattern: Shared Component (Global)
+-->
+<footer class="bg-slate-900 text-white pt-12 pb-6 mt-auto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Brand -->
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-blue-600 text-white p-1 rounded font-bold">NP</div>
+                    <span class="text-xl font-bold">NewsPortal</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Menyajikan berita terkini, akurat, dan terpercaya dari seluruh penjuru dunia.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="font-bold mb-4 text-gray-200">Kategori</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-white">Nasional</a></li>
+                    <li><a href="#" class="hover:text-white">Teknologi</a></li>
+                    <li><a href="#" class="hover:text-white">Ekonomi</a></li>
+                    <li><a href="#" class="hover:text-white">Olahraga</a></li>
+                </ul>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="font-bold mb-4 text-gray-200">Informasi</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-white">Tentang Kami</a></li>
+                    <li><a href="#" class="hover:text-white">Pedoman Media Siber</a></li>
+                    <li><a href="#" class="hover:text-white">Karir</a></li>
+                    <li><a href="#" class="hover:text-white">Kontak</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="font-bold mb-4 text-gray-200">Berlangganan</h4>
+                <p class="text-xs text-slate-400 mb-3">Dapatkan berita pilihan setiap pagi.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email Anda" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-l text-sm focus:outline-none focus:border-blue-500">
+                    <button class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 text-sm">Daftar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+            <p>&copy; 2024 NewsPortal ID. All rights reserved.</p>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>

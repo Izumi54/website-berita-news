@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsPortal ID - Berita Terkini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col bg-slate-50">
+
+    <!-- 
+      LAYOUT: Main Layout 
+      File: src/app/layout.tsx (Conceptual)
+    -->
+
+    <!-- COMPONENT: Navbar -->
+    <!-- Source: src/lib/components/Navbar.html -->
+    <div id="navbar-slot"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        
+        <!-- PAGE CONTENT: Home -->
+        <!-- Source: src/modules/news/components/NewsGrid.html -->
+        <div id="content-slot">
+            <div class="p-10 text-center text-gray-500 animate-pulse">
+                Loading Modular Components...
+            </div>
+        </div>
+
+    </main>
+
+    <!-- COMPONENT: Footer -->
+    <!-- Source: src/lib/components/Footer.html -->
+    <div id="footer-slot"></div>
+
+    <!-- 
+      SIMPLE LOADER SCRIPT 
+      (To demonstrate the architecture visually in browser without a build step)
+    -->
+    <script>
+        async function loadComponent(id, path) {
+            try {
+                // Adjust path relative to this file location
+                // page.html is in UI/src/app/
+                // Components are in UI/src/lib/ or UI/src/modules/
+                // We need to go up two levels: ../../
+                const response = await fetch('../../' + path);
+                const html = await response.text();
+                document.getElementById(id).innerHTML = html;
+                lucide.createIcons();
+            } catch (e) {
+                console.error("Failed to load component:", path, e);
+                document.getElementById(id).innerHTML = `<div class="text-red-500">Error loading ${path}</div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('navbar-slot', 'lib/components/Navbar.html');
+            loadComponent('footer-slot', 'lib/components/Footer.html');
+            loadComponent('content-slot', 'modules/news/components/NewsGrid.html');
+        });
+    </script>
+</body>
+</html>

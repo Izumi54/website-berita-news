@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login - Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', // Slate 900 for serious/secure vibe
+                        secondary: '#334155',
+                        brand: '#e11d48',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center">
+    
+    <!-- Backdrop Overlay -->
+    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+
+    <!-- Login Container -->
+    <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
+        
+        <!-- Header -->
+        <div class="bg-white p-8 pb-0 text-center">
+            <div class="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black text-2xl mx-auto mb-6 shadow-lg">
+                N
+            </div>
+            <h1 class="text-2xl font-bold text-slate-900 mb-2">Admin Portal</h1>
+            <p class="text-slate-500 text-sm">Masuk untuk mengelola konten berita.</p>
+        </div>
+
+        <!-- Alert (Hidden by default) -->
+        <div id="login-alert" class="hidden mx-8 mt-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-start gap-3 text-sm">
+            <i class="fas fa-exclamation-circle mt-0.5"></i>
+            <div>
+                <span class="font-bold block mb-1">Akses Ditolak</span>
+                Invalid Credentials. Please check your input and try again.
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="p-8">
+            <form id="login-form" class="space-y-5" onsubmit="handleLogin(event)">
+                
+                <!-- Email Input -->
+                <div class="space-y-2">
+                    <label for="email" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <input type="email" id="email" required 
+                            class="block w-full pl-10 pr-3 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition text-sm placeholder-slate-400" 
+                            placeholder="admin@newsportal.id">
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <label for="password" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Password</label>
+                        <a href="#" class="text-xs text-brand font-medium hover:underline">Lupa Password?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <input type="password" id="password" required 
+                            class="block w-full pl-10 pr-10 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition text-sm placeholder-slate-400" 
+                            placeholder="••••••••••••">
+                        <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none">
+                            <i id="eye-icon" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Captcha Placeholder -->
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex items-center gap-3">
+                    <div class="w-6 h-6 border-2 border-slate-300 rounded flex items-center justify-center bg-white cursor-pointer hover:border-slate-400 transition" onclick="this.classList.toggle('bg-green-500'); this.classList.toggle('border-green-500'); this.innerHTML = this.innerHTML ? '' : '<i class=\'fas fa-check text-white text-xs\'></i>'">
+                        
+                    </div>
+                    <span class="text-xs text-slate-600">I am human (Security Check)</span>
+                    <i class="fas fa-shield-alt ml-auto text-slate-300"></i>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submit-btn" class="w-full bg-slate-900 text-white font-bold py-3.5 rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 transition flex items-center justify-center gap-2 group">
+                    <span>Masuk Dashboard</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+                </button>
+
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-slate-50 p-4 text-center border-t border-slate-100">
+            <p class="text-xs text-slate-400 flex items-center justify-center gap-2">
+                <i class="fas fa-lock"></i> 256-bit SSL Encrypted Connection
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const alert = document.getElementById('login-alert');
+            const originalContent = btn.innerHTML;
+
+            // Simulate Loading
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Verifying...';
+            alert.classList.add('hidden');
+
+            // Simulate Server Check (Latency)
+            setTimeout(() => {
+                // Simulate Error first (Security Best Practice: Don't reveal account existence immediately)
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                alert.classList.remove('hidden');
+                
+                // Shake animation for UX
+                const container = document.querySelector('.max-w-md');
+                container.classList.add('animate-[shake_0.5s_ease-in-out]');
+                setTimeout(() => container.classList.remove('animate-[shake_0.5s_ease-in-out]'), 500);
+
+            }, 1500);
+        }
+    </script>
+    <style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!-- HEADER / NAVIGATION STRATEGY
+     Path: src/lib/components/Navbar.html
+     Pattern: Shared Component (Global)
+-->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <!-- Top Bar (Date & Socials) -->
+    <div class="bg-slate-900 text-white text-xs py-2">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <span id="current-date">Senin, 1 Januari 2024</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-blue-400">Tentang Kami</a>
+                <a href="#" class="hover:text-blue-400">Kontak</a>
+                <a href="#" class="hover:text-blue-400">Redaksi</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Nav -->
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="text-2xl font-bold text-blue-700 flex items-center gap-2 cursor-pointer">
+                <div class="bg-blue-700 text-white p-1 rounded">NP</div>
+                NewsPortal
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex gap-8 font-semibold text-sm text-gray-600">
+                <a href="/" class="hover:text-blue-700 transition">Utama</a>
+                <a href="/nasional" class="hover:text-blue-700 transition">Nasional</a>
+                <a href="/teknologi" class="hover:text-blue-700 transition">Teknologi</a>
+                <a href="/ekonomi" class="hover:text-blue-700 transition">Ekonomi</a>
+                <a href="/olahraga" class="hover:text-blue-700 transition">Olahraga</a>
+                <a href="/hiburan" class="hover:text-blue-700 transition">Hiburan</a>
+            </nav>
+
+            <!-- Search & Mobile Menu Button -->
+            <div class="flex items-center gap-4">
+                <button class="text-gray-500 hover:text-blue-700">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <!-- Auth Trigger -->
+                <a href="/admin/login.html" class="hidden md:flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-blue-700 border border-slate-200 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition">
+                    <i data-lucide="lock" class="w-4 h-4"></i> Masuk
+                </a>
+                <button class="md:hidden text-gray-800" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div class="flex flex-col p-4 gap-4 font-semibold text-sm">
+            <a href="/" class="text-blue-700">Utama</a>
+            <a href="/nasional">Nasional</a>
+            <a href="/teknologi">Teknologi</a>
+            <a href="/ekonomi">Ekonomi</a>
+            <a href="/olahraga">Olahraga</a>
+            <a href="/hiburan">Hiburan</a>
+            <hr>
+            <a href="/admin/login.html">Login Admin</a>
+        </div>
+    </div>
+</header>
