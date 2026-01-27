@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Berita - NewsPortal Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        brand: '#e11d48',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+    
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR (DUPLICATED FOR PROTOTYPE - Should be a component in real app) -->
+        <aside class="w-64 bg-slate-900 text-white flex flex-col shadow-xl z-20 hidden md:flex">
+            <div class="h-16 flex items-center px-6 border-b border-slate-800">
+                <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center font-bold text-white mr-3">N</div>
+                <span class="font-bold text-lg tracking-wide">NewsPortal</span>
+            </div>
+            <nav class="flex-grow p-4 space-y-1 overflow-y-auto">
+                <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-2 mt-2">Main Menu</div>
+                <a href="../dashboard.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition group">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5 group-hover:text-brand transition"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-brand rounded-lg text-white shadow-lg shadow-brand/20">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    <span class="font-medium">Berita / Artikel</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-800">
+                <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 transition cursor-pointer">
+                    <img src="https://ui-avatars.com/api/?name=Admin+Redaksi&background=e11d48&color=fff" class="w-10 h-10 rounded-full">
+                    <div class="overflow-hidden">
+                        <h4 class="text-sm font-bold truncate">Admin Redaksi</h4>
+                        <p class="text-xs text-slate-500 truncate">admin@newsportal.id</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-grow flex flex-col h-screen overflow-hidden relative">
+            
+            <!-- Topbar -->
+            <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <span class="text-slate-400 font-normal">Dashboard /</span> Kelola Berita
+                </h2>
+                <div class="flex items-center gap-4">
+                    <a href="create.html" class="bg-brand hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded flex items-center gap-2 transition">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Tulis Berita
+                    </a>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="flex-grow overflow-auto p-6 bg-slate-50">
+                
+                <!-- Filters -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
+                    <div class="flex gap-2 w-full md:w-auto">
+                        <div class="relative w-full md:w-64">
+                            <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-slate-400"></i>
+                            <input type="text" placeholder="Cari judul..." class="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-slate-900">
+                        </div>
+                        <select class="border border-slate-200 rounded-lg text-sm px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-slate-900">
+                            <option>Semua Kategori</option>
+                            <option>Nasional</option>
+                            <option>Teknologi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-slate-900 text-white">Semua</button>
+                        <button class="px-3 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:bg-slate-100">Published</button>
+                        <button class="px-3 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:bg-slate-100">Draft</button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+                                <th class="p-4 border-b border-slate-100 w-10"><input type="checkbox" class="rounded border-slate-300"></th>
+                                <th class="p-4 font-bold border-b border-slate-100">Judul Artikel</th>
+                                <th class="p-4 font-bold border-b border-slate-100">Penulis</th>
+                                <th class="p-4 font-bold border-b border-slate-100">Kategori</th>
+                                <th class="p-4 font-bold border-b border-slate-100">Views</th>
+                                <th class="p-4 font-bold border-b border-slate-100">Status</th>
+                                <th class="p-4 font-bold border-b border-slate-100 text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-slate-50 transition group">
+                                <td class="p-4 border-b border-slate-100"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <div class="font-bold text-slate-800 text-base mb-1">Transformasi Digital 2024</div>
+                                    <div class="text-xs text-slate-400">Published: 20 Jan 2026, 14:30 WIB</div>
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">BS</div>
+                                        <span>Budi Santoso</span>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold">Teknologi</span>
+                                </td>
+                                <td class="p-4 border-b border-slate-100 font-mono text-slate-500">
+                                    12.5k
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Published
+                                    </span>
+                                </td>
+                                <td class="p-4 border-b border-slate-100 text-right">
+                                    <div class="flex justify-end gap-2">
+                                        <button class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded" title="Preview"><i data-lucide="eye" class="w-4 h-4"></i></button>
+                                        <button class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded" title="Edit"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                                        <button class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded" title="Delete"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-slate-50 transition group">
+                                <td class="p-4 border-b border-slate-100"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <div class="font-bold text-slate-800 text-base mb-1">Harga Emas Antam Turun</div>
+                                    <div class="text-xs text-slate-400">Last edit: 10 mins ago</div>
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold">DL</div>
+                                        <span>Dewi Lestari</span>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">Ekonomi</span>
+                                </td>
+                                <td class="p-4 border-b border-slate-100 font-mono text-slate-500">
+                                    -
+                                </td>
+                                <td class="p-4 border-b border-slate-100">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span> Draft
+                                    </span>
+                                </td>
+                                <td class="p-4 border-b border-slate-100 text-right">
+                                    <div class="flex justify-end gap-2">
+                                        <button class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded" title="Edit"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                                        <button class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded" title="Delete"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    
+                    <!-- Pagination -->
+                    <div class="p-4 bg-white border-t border-slate-200 flex justify-between items-center">
+                        <span class="text-xs text-slate-500">Showing 1-10 of 45 items</span>
+                        <div class="flex gap-1">
+                            <button class="px-3 py-1 border border-slate-200 rounded text-slate-400 hover:bg-slate-50 text-xs" disabled>Previous</button>
+                            <button class="px-3 py-1 bg-slate-900 text-white rounded text-xs">1</button>
+                            <button class="px-3 py-1 border border-slate-200 rounded text-slate-600 hover:bg-slate-50 text-xs">2</button>
+                            <button class="px-3 py-1 border border-slate-200 rounded text-slate-600 hover:bg-slate-50 text-xs">3</button>
+                            <button class="px-3 py-1 border border-slate-200 rounded text-slate-600 hover:bg-slate-50 text-xs">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
