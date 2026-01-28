@@ -1,6 +1,6 @@
 # Modern News Portal (Rebuild Project)
 
-Project ini adalah inisiatif **modernisasi total** dari sistem website berita legacy (`website-berita`). Fokus utama kami adalah membangun platform berita yang **aman, ultra-cepat, dan scalable** menggunakan teknologi web standar industri terkini, tanpa menghilangkan fitur-fitur krusial dari sistem lama.
+Project ini adalah inisiatif **modernisasi total** dari sistem website berita legacy (`website-berita`). Fokus utama kami adalah membangun platform berita yang **aman, ultra-cepat, dan scalable** menggunakan teknologi web standar industri terkini, tanpa menghilangkan fitur-fitur krusial dari sistem lama..
 
 ---
 
